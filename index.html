@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Para você, meu amor</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Nunito:wght@400;600&display=swap">
+<style>
+:root{
+  --night:#0a1736; --night2:#123069; --moon:#eaf2ff; --muted:#a9bde0;
+  --flame:#6cb8ff; --rose:#9cc9ff; --glow:rgba(108,184,255,.3);
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 0%,var(--night2),var(--night) 70%);color:var(--moon);font-family:var(--sans);font-size:1.08rem;line-height:1.75;overflow-x:hidden}
+#stars{position:fixed;inset:0;pointer-events:none;z-index:0}
+#stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--moon);opacity:.5;animation:tw 4s ease-in-out infinite}
+@keyframes tw{50%{opacity:.08}}
+#warm{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:0;transition:opacity 2.5s ease;background:radial-gradient(circle at 50% 100%,rgba(70,150,255,.5),rgba(140,200,255,.22) 45%,transparent 75%)}
+body.hug #warm{opacity:1}
+main{position:relative;z-index:2;max-width:34rem;margin:0 auto;padding:0 1.4rem 5rem}
+
+/* vela */
+.intro{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1.6rem}
+.intro h1{font-family:var(--serif);font-weight:500;font-style:italic;font-size:clamp(2.1rem,8vw,3rem);line-height:1.15;margin:0}
+.intro p{margin:0;color:var(--muted)}
+.candle{all:unset;cursor:pointer;display:block;width:96px;height:190px;position:relative;margin-top:.5rem;border-radius:12px}
+.candle:focus-visible{outline:2px solid var(--flame);outline-offset:8px}
+.wax{position:absolute;left:30px;bottom:0;width:36px;height:110px;border-radius:6px 6px 4px 4px;background:linear-gradient(90deg,#d9d2e6,#f4f0fa 45%,#c9c1da)}
+.wick{position:absolute;left:47px;bottom:108px;width:3px;height:14px;background:#3a2f3a;border-radius:2px}
+.flame{position:absolute;left:36px;bottom:118px;width:24px;height:46px;border-radius:50% 50% 50% 50%/62% 62% 38% 38%;background:radial-gradient(ellipse at 50% 75%,#f2f9ff,var(--flame) 55%,#2f7be0);transform-origin:50% 100%;transform:scale(0);filter:blur(.4px)}
+.halo{position:absolute;left:-60px;bottom:40px;width:216px;height:216px;border-radius:50%;background:radial-gradient(circle,var(--glow),transparent 68%);opacity:0;transition:opacity 1.6s}
+body.lit .flame{transform:scale(1);transition:transform 1.2s cubic-bezier(.2,.8,.2,1);animation:fl 2.4s ease-in-out 1.2s infinite}
+body.lit .halo{opacity:1}
+@keyframes fl{0%,100%{transform:scale(1) rotate(-1.5deg)}50%{transform:scale(1.06,.95) rotate(1.5deg)}}
+.hint{transition:opacity 1s}
+body.lit .hint{opacity:0}
+
+/* carta */
+.letter{opacity:0;visibility:hidden;transition:opacity 2.4s ease 1s}
+body.lit .letter{opacity:1;visibility:visible}
+.letter p{margin:0 0 1.5rem}
+.sign{font-family:var(--serif);font-style:italic;font-size:1.4rem;color:var(--rose)}
+.big{font-family:var(--serif);font-style:italic;font-weight:600;font-size:clamp(2.6rem,12vw,4rem);line-height:1.05;color:var(--flame);margin:2.4rem 0;text-align:center}
+.mom{border-left:2px solid var(--rose);padding-left:1.1rem}
+.hugwrap{text-align:center;margin-top:3rem}
+.hugbtn{font:600 1.05rem var(--sans);color:var(--night);background:var(--flame);border:0;border-radius:999px;padding:1rem 2rem;cursor:pointer;box-shadow:0 8px 30px rgba(108,184,255,.35);transition:transform .2s}
+.hugbtn:hover{transform:scale(1.04)}
+.hugbtn:focus-visible{outline:2px solid var(--moon);outline-offset:4px}
+#after{max-height:0;opacity:0;overflow:hidden;transition:max-height 1.5s ease,opacity 2s ease .6s}
+body.hug #after{max-height:30rem;opacity:1}
+body.hug .hugbtn{display:none}
+#after p{font-family:var(--serif);font-style:italic;font-size:1.55rem;line-height:1.45;margin:0 0 1rem;color:#eef6ff}
+.heart{position:fixed;bottom:-30px;z-index:3;color:var(--rose);pointer-events:none;animation:up linear forwards}
+@keyframes up{to{transform:translateY(-110vh) translateX(var(--dx));opacity:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="stars" aria-hidden="true"></div>
+<div id="warm" aria-hidden="true"></div>
+<main>
+  <section class="intro">
+    <h1>Meu amor</h1>
+    <p class="hint">Hoje o dia foi pesado demais. Acendi uma vela pra você.</p>
+    <button class="candle" id="candle" aria-label="Acender a vela">
+      <span class="halo"></span><span class="wax"></span><span class="wick"></span><span class="flame"></span>
+    </button>
+    <p class="hint">Toque na vela, meu amor.</p>
+  </section>
+
+  <article class="letter" aria-live="polite">
+    <p>Amor, hoje você teve um dia cansativo: o trabalho pesado, o ônibus quebrado na volta e uma perda. Eu queria poder estar aí agora, e como ainda não posso, escrevi isto pra você.</p>
+
+    <p>Meus sentimentos, meu amor. Sinto muito pela sua perda. Meus pêsames também à sua mãe, que está sentindo essa dor junto com você.</p>
+
+    <p class="mom">Sogrinha, o meu respeito e o meu carinho pela senhora neste momento. Eu estou com vocês duas.</p>
+
+    <p>Quero que você saiba de uma coisa: você não está sozinha. Eu estou do seu lado, hoje e sempre. Se quiser chorar, eu fico. Se quiser silêncio, eu fico também. Se quiser falar, eu escuto até o fim.</p>
+
+    <p class="big">Eu te amo.</p>
+
+    <p>Eu te amo quando você está forte e eu te amo ainda mais quando está cansada. Eu te amo, amor, e isso nenhum dia ruim muda.</p>
+
+    <p>Logo, logo eu estou aí te abraçando.</p>
+
+    <p class="sign">Do seu namorado Lucas Gabriel, que ama muito você.</p>
+
+    <div class="hugwrap">
+      <button class="hugbtn" id="hug">Receber meu abraço</button>
+      <div id="after">
+        <p>Fecha os olhos e respira fundo. Sente? É o meu abraço, apertado, só seu.</p>
+        <p>Já já ele é de verdade.</p>
+        <p style="color:var(--flame);font-size:2rem">Eu te amo, amor.</p>
+      </div>
+    </div>
+  </article>
+</main>
+<script>
+(function(){
+  var s=document.getElementById('stars');
+  for(var i=0;i<60;i++){var d=document.createElement('i');d.style.left=Math.random()*100+'%';d.style.top=Math.random()*100+'%';d.style.animationDelay=(Math.random()*4)+'s';s.appendChild(d);}
+  document.getElementById('candle').addEventListener('click',function(){
+    document.body.classList.add('lit');
+    setTimeout(function(){document.querySelector('.letter').scrollIntoView({behavior:'smooth',block:'start'});},1800);
+  });
+  document.getElementById('hug').addEventListener('click',function(){
+    document.body.classList.add('hug');
+    for(var i=0;i<18;i++){(function(i){setTimeout(function(){
+      var h=document.createElement('span');h.className='heart';h.textContent='\u2665';
+      h.style.left=Math.random()*100+'%';h.style.fontSize=(14+Math.random()*22)+'px';
+      h.style.setProperty('--dx',(Math.random()*80-40)+'px');
+      h.style.animationDuration=(5+Math.random()*4)+'s';
+      document.body.appendChild(h);setTimeout(function(){h.remove();},9500);
+    },i*250);})(i);}
+  });
+})();
+</script>
+</body>
+</html>
